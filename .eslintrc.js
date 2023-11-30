@@ -1,0 +1,30 @@
+module.exports = {
+	extends: ['plugin:vue/vue3-recommended', 'plugin:prettier/recommended'],
+	rules: {
+		'vue/multi-word-component-names': 'off',
+		'prettier/prettier': [
+			'warn',
+			{
+				arrowParens: 'always',
+				bracketSameLine: false,
+				bracketSpacing: false,
+				semi: true,
+				experimentalTernaries: false,
+				singleQuote: true,
+				jsxSingleQuote: false,
+				quoteProps: 'as-needed',
+				trailingComma: 'all',
+				singleAttributePerLine: false,
+				htmlWhitespaceSensitivity: 'css',
+				vueIndentScriptAndStyle: false,
+				proseWrap: 'preserve',
+				insertPragma: false,
+				printWidth: 80,
+				requirePragma: false,
+				tabWidth: 2,
+				useTabs: true,
+				embeddedLanguageFormatting: 'auto',
+			},
+		],
+	},
+};

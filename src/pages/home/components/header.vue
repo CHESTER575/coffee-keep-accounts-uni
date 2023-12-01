@@ -11,12 +11,7 @@ const initDate = () => {
 	const _date = new Date();
 	const year = _date.getFullYear();
 	const month = _date.getMonth() + 1;
-	const day = _date.getDate();
-	if (day.toString().length === 1) {
-		date.value = `${year}-${month}-0${day}`;
-	} else {
-		date.value = `${year}-${month}-${day}`;
-	}
+	date.value = `${year}年${month}月`;
 };
 
 initDate();

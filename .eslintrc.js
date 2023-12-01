@@ -1,5 +1,25 @@
 module.exports = {
+	root: true,
+	parser: 'vue-eslint-parser',
+	parserOptions: {
+		parser: '@typescript-eslint/parser',
+		sourceType: 'module',
+	},
 	extends: ['plugin:vue/vue3-recommended', 'plugin:prettier/recommended'],
+	// 小程序全局变量
+	globals: {
+		uni: true,
+		wx: true,
+		WechatMiniprogram: true,
+		getCurrentPages: true,
+		getApp: true,
+		UniApp: true,
+		UniHelper: true,
+		App: true,
+		Page: true,
+		Component: true,
+		AnyObject: true,
+	},
 	rules: {
 		'vue/multi-word-component-names': 'off',
 		'prettier/prettier': [

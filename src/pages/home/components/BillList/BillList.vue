@@ -29,6 +29,13 @@ const dateTxt = computed(() => {
 
 	return result;
 });
+
+/* 账单点击事件 */
+const handleBillClick = () => {
+	uni.navigateTo({
+		url: '/pages/bill-detail/bill-detail',
+	});
+};
 </script>
 
 <template>
@@ -41,7 +48,12 @@ const dateTxt = computed(() => {
 				<text>支出：{{ props.bill.pay.toFixed(2) }}</text>
 			</view>
 		</view>
-		<view v-for="item in props.bill.items" :key="item.id" class="list">
+		<view
+			v-for="item in props.bill.items"
+			:key="item.id"
+			class="list"
+			@click="handleBillClick"
+		>
 			<BillItem :bill="item"> </BillItem>
 		</view>
 	</view>

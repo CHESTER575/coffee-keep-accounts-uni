@@ -54,13 +54,20 @@ const calcListHeight = () => {
 
 	return `calc(${calcContentHeight()} - ${padding} - ${statisticsHeight})`;
 };
+
+/**
+ * 修改日期事件
+ */
+const handleChangeDate = (val: {year: string; month: string}) => {
+	console.log(val);
+};
 </script>
 
 <template>
 	<view class="home">
 		<view :style="{marginTop: `${safeArea?.top}px`}">
 			<!-- 头部 -->
-			<Header></Header>
+			<Header @change-date="handleChangeDate"></Header>
 
 			<!-- 内容 -->
 			<view class="content" :style="{height: calcContentHeight()}">
@@ -81,7 +88,7 @@ const calcListHeight = () => {
 	</view>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .home {
 	max-height: 100vh;
 	background-color: $bg-color;

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Header from './components/header.vue';
-import Statistics from './components/statistics.vue';
-import BillList from './components/BillList/BillList.vue';
+import Header from '@/components/business/home/Header.vue';
+import Statistics from '@/components/business/home/Statistics.vue';
+import BillList from '@/components/business/home/BillList/BillList.vue';
 import Tabbar from '@/components/Tabbar.vue';
-import type {Bill} from './components/BillList/types';
+import type {Bill} from '@/components/business/home/BillList/types';
 
 // 安全区
 const {safeArea} = uni.getSystemInfoSync();

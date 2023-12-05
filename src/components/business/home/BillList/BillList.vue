@@ -4,12 +4,13 @@ import BillItem from './BillItem.vue';
 import moment from 'moment';
 import {weeks} from '@/variable/week';
 import type {WeekKeys} from '@/variable/week';
-import {computed} from 'vue';
+import {computed, ref} from 'vue';
 
 const props = defineProps<{
 	bill: Bill;
 }>();
 
+// 日期显示的文本
 const dateTxt = computed(() => {
 	let result = '';
 
@@ -32,8 +33,16 @@ const dateTxt = computed(() => {
 
 /* 账单点击事件 */
 const handleBillClick = () => {
+	const bill = JSON.stringify({
+		id: 1,
+		pay: 10,
+		income: 0,
+		note: '抖音买书',
+		category: '购物',
+		date: Date.now(),
+	});
 	uni.navigateTo({
-		url: '/pages/bill-detail/bill-detail',
+		url: `/pages/bill-detail/bill-detail?bill=${bill}`,
 	});
 };
 </script>

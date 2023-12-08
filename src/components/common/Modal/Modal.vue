@@ -102,7 +102,7 @@ function toogleModalState() {
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background-color: rgba($color: #000000, $alpha: 0.04);
+	background-color: rgba($color: #000000, $alpha: 0.4);
 	box-sizing: border-box;
 	z-index: 999999;
 

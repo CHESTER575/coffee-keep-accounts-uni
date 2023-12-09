@@ -133,8 +133,9 @@ const pickerViewValue = computed(() => {
 	const monthIndex = months.value.indexOf(Number(selectedDate.value.month));
 	result.push(yearIndex);
 	result.push(monthIndex);
+
 	if (props.types.showDay) {
-		const dayIndex = years.value.indexOf(Number(selectedDate.value.day));
+		const dayIndex = days.value.indexOf(Number(selectedDate.value.day));
 		result.push(dayIndex);
 	}
 

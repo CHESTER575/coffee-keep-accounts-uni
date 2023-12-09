@@ -7,6 +7,10 @@ const emits = defineEmits<{
 }>();
 
 const props = defineProps({
+	title: {
+		type: Boolean,
+		default: true,
+	},
 	titleText: {
 		type: String,
 		default: '弹窗标题',
@@ -49,24 +53,24 @@ const modalState = ref(false);
 
 // 取消事件
 const handleCancel = () => {
-	toogleModalState();
+	toggleModalState();
 	emits('cancel');
 };
 
 // 确认事件
 const handleConfirm = () => {
-	toogleModalState();
+	toggleModalState();
 	emits('confirm');
 };
 
 // 切换组件显示状态事件
-function toogleModalState() {
+function toggleModalState() {
 	modalState.value = !modalState.value;
 }
 </script>
 
 <template>
-	<view class="default-slot" @click="toogleModalState">
+	<view class="default-slot" @click="toggleModalState">
 		<slot></slot>
 	</view>
 
@@ -75,11 +79,11 @@ function toogleModalState() {
 			ref="modalMaskRef"
 			class="modal-mask"
 			:style="`padding-top: ${props.modalToTopGap}rpx;`"
-			@click="toogleModalState"
+			@click="toggleModalState"
 		>
 			<view class="modal" @click.stop="() => {}">
 				<slot name="header">
-					<view class="header">
+					<view v-if="props.title" class="header">
 						{{ props.titleText }}
 					</view>
 				</slot>
@@ -148,7 +152,7 @@ function toogleModalState() {
 				justify-content: center;
 				align-items: center;
 				box-sizing: border-box;
-				border-width: 0px 1px 0px 0px;
+				border-width: 0 1px 0 0;
 				border-style: solid;
 				border-color: rgba(0, 0, 0, 0.08);
 				font-family: 思源黑体;

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4297031 */
-  src: url('iconfont.woff2?t=1701358806793') format('woff2'),
-       url('iconfont.woff?t=1701358806793') format('woff'),
-       url('iconfont.ttf?t=1701358806793') format('truetype');
+  src: url('iconfont.woff2?t=1702331728805') format('woff2'),
+       url('iconfont.woff?t=1702331728805') format('woff'),
+       url('iconfont.ttf?t=1702331728805') format('truetype');
 }
 
 .iconfont {
@@ -23,6 +23,10 @@
 
 .icon-close:before {
   content: "\e62e";
+}
+
+.icon-shouye-copy:before {
+  content: "\100ce";
 }
 
 .icon-shanchu:before {
@@ -127,6 +131,10 @@
 
 .icon-tianjia2:before {
   content: "\100cd";
+}
+
+.icon-wode-copy:before {
+  content: "\100cf";
 }
 
 .icon-licai1:before {

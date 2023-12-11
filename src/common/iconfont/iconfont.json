@@ -27,6 +27,13 @@
       "unicode_decimal": 58926
     },
     {
+      "icon_id": "38515090",
+      "name": "首页",
+      "font_class": "shouye-copy",
+      "unicode": "100ce",
+      "unicode_decimal": 65742
+    },
+    {
       "icon_id": "19449137",
       "name": "删除",
       "font_class": "shanchu",
@@ -207,6 +214,13 @@
       "font_class": "tianjia2",
       "unicode": "100cd",
       "unicode_decimal": 65741
+    },
+    {
+      "icon_id": "38515091",
+      "name": "我的",
+      "font_class": "wode-copy",
+      "unicode": "100cf",
+      "unicode_decimal": 65743
     },
     {
       "icon_id": "12296954",

@@ -7,7 +7,9 @@ const {safeArea} = uni.getSystemInfoSync();
 	<view class="mine">
 		<view class="body" :style="{marginTop: `${safeArea?.top}px`}">
 			<view class="header">
-				<view class="t-icon t-icon-back"></view>
+				<navigator open-type="navigateBack" hover-class="none">
+					<view class="t-icon t-icon-back"></view>
+				</navigator>
 			</view>
 			<view class="avatar">
 				<img v-if="false" class="img" src="" alt="" />

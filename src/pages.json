@@ -31,6 +31,12 @@
       "style": {
         "navigationStyle": "custom"
       }
+    },
+    {
+      "path": "pages/mine/change-email",
+      "style": {
+        "navigationStyle": "custom"
+      }
     }
   ],
   "globalStyle": {

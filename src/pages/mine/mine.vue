@@ -19,10 +19,16 @@ const {safeArea} = uni.getSystemInfoSync();
 				<text>点击修改头像</text>
 			</view>
 			<view class="info">
-				<view class="email info-item">
-					<text>邮箱：2807915330@qq.com</text>
-					<view class="t-icon t-icon-edit-info-more"></view>
-				</view>
+				<navigator
+					url="/pages/mine/change-email"
+					open-type="navigate"
+					hover-class="none"
+				>
+					<view class="email info-item">
+						<text>邮箱：2807915330@qq.com</text>
+						<view class="t-icon t-icon-edit-info-more"></view>
+					</view>
+				</navigator>
 				<view class="nickname info-item">
 					<text>昵称：用户1</text>
 					<view class="t-icon t-icon-edit-info-more"></view>

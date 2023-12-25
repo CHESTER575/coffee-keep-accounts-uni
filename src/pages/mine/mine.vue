@@ -24,16 +24,16 @@ const {safeArea} = uni.getSystemInfoSync();
 					open-type="navigate"
 					hover-class="none"
 				>
-					<view class="email info-item">
+					<view class="email info-item border-bottom border-top-radius">
 						<text>邮箱：2807915330@qq.com</text>
 						<view class="t-icon t-icon-edit-info-more"></view>
 					</view>
 				</navigator>
-				<view class="nickname info-item">
+				<view class="nickname info-item border-bottom">
 					<text>昵称：用户1</text>
 					<view class="t-icon t-icon-edit-info-more"></view>
 				</view>
-				<view class="desc info-item">
+				<view class="desc info-item border-bottom-radius">
 					<text>介绍：xxx</text>
 					<view class="t-icon t-icon-edit-info-more"></view>
 				</view>
@@ -89,18 +89,20 @@ const {safeArea} = uni.getSystemInfoSync();
 				font-size: 28rpx;
 				color: rgba(0, 0, 0, 0.6);
 				box-sizing: border-box;
+			}
+
+			.border-bottom {
 				border-bottom: 2rpx solid rgba(0, 0, 0, 0.08);
 			}
 
-			.info-item:last-child {
-				border-bottom: 2rpx solid rgba(0, 0, 0, 0);
-				border-bottom-left-radius: 12rpx;
-				border-bottom-right-radius: 12rpx;
-			}
-
-			.info-item:first-child {
+			.border-top-radius {
 				border-top-left-radius: 12rpx;
 				border-top-right-radius: 12rpx;
+			}
+
+			.border-bottom-radius {
+				border-bottom-left-radius: 12rpx;
+				border-bottom-right-radius: 12rpx;
 			}
 
 			.t-icon {

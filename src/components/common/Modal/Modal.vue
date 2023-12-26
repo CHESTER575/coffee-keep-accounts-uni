@@ -112,7 +112,7 @@ function toggleModalState() {
 
 	.modal {
 		width: 654rpx;
-		height: 336rpx;
+		height: auto;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -123,6 +123,7 @@ function toggleModalState() {
 		border-radius: 32rpx;
 		box-shadow: 0 0 44rpx - 14rpx rgba(0, 0, 0, 0.3);
 		margin: 0 auto;
+		gap: 32rpx;
 
 		.header {
 			width: 100%;

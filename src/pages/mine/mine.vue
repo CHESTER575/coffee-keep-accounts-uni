@@ -1,6 +1,17 @@
 <script setup lang="ts">
+import Modal from '@/components/common/Modal/Modal.vue';
+import {ref} from 'vue';
+
 // 安全区
 const {safeArea} = uni.getSystemInfoSync();
+
+// 用户信息
+const user = ref({
+	email: '2807915330@qq.com',
+	avatar: '',
+	nickname: '用户1',
+	desc: '暂无介绍',
+});
 </script>
 
 <template>
@@ -12,7 +23,7 @@ const {safeArea} = uni.getSystemInfoSync();
 				</navigator>
 			</view>
 			<view class="avatar">
-				<img v-if="false" class="img" src="" alt="" />
+				<img v-if="user.avatar" class="img" src="" alt="" />
 				<view v-else class="t-icon t-icon-icon-avatar img"></view>
 			</view>
 			<view class="change-avatar">
@@ -25,18 +36,46 @@ const {safeArea} = uni.getSystemInfoSync();
 					hover-class="none"
 				>
 					<view class="email info-item border-bottom border-top-radius">
-						<text>邮箱：2807915330@qq.com</text>
+						<text>邮箱：{{ user.email }}</text>
+						<view class="space"></view>
 						<view class="t-icon t-icon-edit-info-more"></view>
 					</view>
 				</navigator>
-				<view class="nickname info-item border-bottom">
-					<text>昵称：用户1</text>
-					<view class="t-icon t-icon-edit-info-more"></view>
-				</view>
-				<view class="desc info-item border-bottom-radius">
-					<text>介绍：xxx</text>
-					<view class="t-icon t-icon-edit-info-more"></view>
-				</view>
+				<Modal title-text="昵称修改">
+					<view class="nickname info-item border-bottom">
+						<text>昵称：{{ user.nickname }}</text>
+						<view class="space"></view>
+						<view class="t-icon t-icon-edit-info-more"></view>
+					</view>
+
+					<template #content>
+						<view class="change-nickname-modal-content">
+							<input
+								v-model="user.nickname"
+								type="text"
+								placeholder="修改昵称"
+								class="change-nickname-input"
+							/>
+						</view>
+					</template>
+				</Modal>
+				<Modal>
+					<view class="desc info-item border-bottom-radius">
+						<text>介绍：{{ user.desc }}</text>
+						<view class="space"></view>
+						<view class="t-icon t-icon-edit-info-more"></view>
+					</view>
+
+					<template #content>
+						<view class="change-desc-modal-content">
+							<textarea
+								v-model="user.desc"
+								class="change-desc-input"
+								placeholder="请输入介绍"
+							/>
+						</view>
+					</template>
+				</Modal>
 			</view>
 		</view>
 	</view>
@@ -89,6 +128,17 @@ const {safeArea} = uni.getSystemInfoSync();
 				font-size: 28rpx;
 				color: rgba(0, 0, 0, 0.6);
 				box-sizing: border-box;
+
+				text {
+					flex: 1;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+
+				.space {
+					width: 5%;
+				}
 			}
 
 			.border-bottom {
@@ -107,6 +157,31 @@ const {safeArea} = uni.getSystemInfoSync();
 
 			.t-icon {
 				background-size: 32rpx !important;
+			}
+
+			.change-nickname-modal-content,
+			.change-desc-modal-content {
+				width: 100%;
+				box-sizing: border-box;
+				padding: 0 48rpx;
+				.change-nickname-input,
+				.change-desc-input {
+					background-color: #f7f7f7;
+					border-radius: 12rpx;
+					font-size: 28rpx;
+					box-sizing: border-box;
+					padding-left: 24rpx;
+					color: rgba(0, 0, 0, 0.6);
+				}
+
+				.change-nickname-input {
+					height: 84rpx;
+				}
+
+				.change-desc-input {
+					width: 100%;
+					padding: 24rpx;
+				}
 			}
 		}
 	}

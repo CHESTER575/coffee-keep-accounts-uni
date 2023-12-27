@@ -27,13 +27,13 @@
       }
     },
     {
-      "path": "pages/mine/mine",
+      "path": "pages/user-info/user-info",
       "style": {
         "navigationStyle": "custom"
       }
     },
     {
-      "path": "pages/mine/change-email",
+      "path": "pages/user-info/change-email",
       "style": {
         "navigationStyle": "custom"
       }

@@ -55,6 +55,9 @@ const emits = defineEmits<{
 	(e: 'confirm', value: DatePickerEmitParam): void;
 }>();
 
+// 弹出层实例
+const popup = ref<UniHelper.UniPopupInstance>();
+
 // 选择器显示状态
 const state = ref(false);
 
@@ -142,6 +145,17 @@ const pickerViewValue = computed(() => {
 	return result;
 });
 
+// 控制弹窗的状态
+watch(state, (value) => {
+	if (popup.value) {
+		if (value) {
+			popup.value.open && popup.value.open();
+		} else {
+			popup.value.close && popup.value.close();
+		}
+	}
+});
+
 watch(modelValue, (value) => {
 	selectedDate.value.year = value.year;
 	selectedDate.value.month = value.month;
@@ -154,50 +168,47 @@ watch(modelValue, (value) => {
 		<slot></slot>
 	</view>
 
-	<view v-if="state" class="cka-date-picker-mask" @click="state = false">
-		<view class="cka-date-picker">
-			<view class="header">
-				<text class="cancel" @click="state = false">取消</text>
-				<text class="title">选择日期</text>
-				<text class="confirm" @click.stop="handleConfirm">确认</text>
-			</view>
-			<view class="content">
-				<picker-view
-					indicator-style="height: 96rpx; background: rgba(0, 0, 0, 0.02);"
-					class="list"
-					:value="pickerViewValue"
-					@change="handleChange"
-				>
-					<picker-view-column v-if="props.types.showYear">
-						<view v-for="item in years" :key="item" class="item">
-							{{ item }}
-						</view>
-					</picker-view-column>
-					<picker-view-column v-if="props.types.showMonth">
-						<view v-for="item in months" :key="item" class="item">
-							{{ item }}
-						</view>
-					</picker-view-column>
-					<picker-view-column v-if="props.types.showDay">
-						<view v-for="item in days" :key="item" class="item">
-							{{ item }}
-						</view>
-					</picker-view-column>
-				</picker-view>
+	<uni-popup ref="popup" type="bottom">
+		<view class="cka-date-picker-mask" @click="state = false">
+			<view class="cka-date-picker" @click.stop="() => {}">
+				<view class="header">
+					<text class="cancel" @click="state = false">取消</text>
+					<text class="title">选择日期</text>
+					<text class="confirm" @click.stop="handleConfirm">确认</text>
+				</view>
+				<view class="content">
+					<picker-view
+						indicator-style="height: 96rpx; background: rgba(0, 0, 0, 0.02);"
+						class="list"
+						:value="pickerViewValue"
+						@change="handleChange"
+					>
+						<picker-view-column v-if="props.types.showYear">
+							<view v-for="item in years" :key="item" class="item">
+								{{ item }}
+							</view>
+						</picker-view-column>
+						<picker-view-column v-if="props.types.showMonth">
+							<view v-for="item in months" :key="item" class="item">
+								{{ item }}
+							</view>
+						</picker-view-column>
+						<picker-view-column v-if="props.types.showDay">
+							<view v-for="item in days" :key="item" class="item">
+								{{ item }}
+							</view>
+						</picker-view-column>
+					</picker-view>
+				</view>
 			</view>
 		</view>
-	</view>
+	</uni-popup>
 </template>
 
 <style scoped lang="scss">
 .cka-date-picker-mask {
-	background-color: rgba($color: #000000, $alpha: 0.04);
 	width: 100vw;
 	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 9999999;
 	display: flex;
 	align-items: flex-end;
 

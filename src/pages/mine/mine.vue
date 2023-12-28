@@ -21,6 +21,11 @@ const handleUserInfoClick = () => {
 const handleToSetting = () => {
 	uni.navigateTo({url: '/pages/setting/setting'});
 };
+
+// 关于模块点击事件
+const handleToAbout = () => {
+	uni.navigateTo({url: '/pages/about/about'});
+};
 </script>
 
 <template>
@@ -67,7 +72,7 @@ const handleToSetting = () => {
 					</view>
 					<view class="t-icon t-icon-edit-info-more"></view>
 				</view>
-				<view class="about">
+				<view class="about" @click="handleToAbout">
 					<view class="left">
 						<view class="t-icon t-icon-guanyu"></view>
 						<view class="txt">关于</view>

@@ -1,13 +1,6 @@
 <script lang="ts" setup>
 // 安全区
 const {safeArea} = uni.getSystemInfoSync();
-
-// 退出登录点击事件
-const handleLogout = () => {
-	// TODO 退出登录逻辑
-
-	uni.navigateBack();
-};
 </script>
 
 <template>
@@ -19,10 +12,14 @@ const handleLogout = () => {
 		</view>
 	</navigator>
 	<view
-		class="setting"
+		class="about"
 		:style="{height: `calc(100vh - ${safeArea.top}px - 84rpx)`}"
 	>
-		<view class="logout" @click="handleLogout"> 退出登录 </view>
+		<view class="desc">
+			咖啡记账是一款用于记录每天的开销的产品，有网页版、小程序、未来还会推出APP，主要是用于学习现在各种主流的技术，前端技术栈（uni-app、typescript、pinia、vue3），后端技术栈（python、mysql、django）。
+		</view>
+		<view class="front-end btn">前端项目地址</view>
+		<view class="back-end btn">后端项目地址</view>
 	</view>
 </template>
 
@@ -41,19 +38,31 @@ const handleLogout = () => {
 	gap: 12rpx;
 }
 
-.setting {
+.about {
 	background-color: #f7f7f7;
 	box-sizing: border-box;
-	padding: 24rpx;
+	padding: 24rpx 24rpx 24rpx 24rpx;
+	display: flex;
+	flex-direction: column;
+	gap: 24rpx;
 
-	.logout {
-		height: 84rpx;
+	.desc {
+		height: 248rpx;
 		background-color: #fff;
+		padding: 24rpx;
+		border-radius: 12rpx;
+		font-size: 28rpx;
+		color: rgba($color: #000000, $alpha: 0.85);
+	}
+
+	.btn {
+		height: 84rpx;
 		border-radius: 12rpx;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: #e74c3c;
+		background-color: #fff;
+		color: #eaa44f;
 		font-size: 28rpx;
 	}
 }

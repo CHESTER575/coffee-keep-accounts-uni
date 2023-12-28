@@ -39,6 +39,10 @@ const handleLogout = () => {
 	display: flex;
 	align-items: center;
 	gap: 12rpx;
+
+	text {
+		font-size: 28rpx;
+	}
 }
 
 .setting {

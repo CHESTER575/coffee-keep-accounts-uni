@@ -1,15 +1,28 @@
 <script lang="ts" setup>
 import Tabbar from '@/components/Tabbar.vue';
+import {useUserStore} from '@/store/user';
 
 // 安全区
 const {safeArea} = uni.getSystemInfoSync();
+
+// store
+const userStore = useUserStore();
+
+// 用户模块点击事件
+const handleUserInfoClick = () => {
+	if (!userStore.getLoginState()) {
+		uni.navigateTo({url: '/pages/login/login'});
+	} else {
+		uni.navigateTo({url: '/pages/user-info/user-info'});
+	}
+};
 </script>
 
 <template>
 	<view class="safe-top" :style="{height: `${safeArea?.top}px`}"></view>
 	<view class="mine" :style="{height: `calc(100vh - ${safeArea?.top}px)`}">
 		<view class="body">
-			<view class="user body-item">
+			<view class="user body-item" @click="handleUserInfoClick">
 				<view class="info">
 					<view class="t-icon t-icon-icon-avatar avatar"></view>
 					<view class="name">请登录</view>

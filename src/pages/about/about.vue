@@ -1,6 +1,19 @@
 <script lang="ts" setup>
 // 安全区
 const {safeArea} = uni.getSystemInfoSync();
+
+// 前端项目地址点击事件
+const handleFrontEndBtnClick = () => {
+	uni.setClipboardData({
+		data: 'https://github.com/CHESTER575/coffee-keep-accounts-uni/tree/pages/static',
+		success: () => {
+			uni.showToast({
+				icon: 'none',
+				title: '连接已复制，请到浏览器中打开',
+			});
+		},
+	});
+};
 </script>
 
 <template>
@@ -18,7 +31,9 @@ const {safeArea} = uni.getSystemInfoSync();
 		<view class="desc">
 			咖啡记账是一款用于记录每天的开销的产品，有网页版、小程序、未来还会推出APP，主要是用于学习现在各种主流的技术，前端技术栈（uni-app、typescript、pinia、vue3），后端技术栈（python、mysql、django）。
 		</view>
-		<view class="front-end btn">前端项目地址</view>
+		<view class="front-end btn" @click="handleFrontEndBtnClick">
+			前端项目地址
+		</view>
 		<view class="back-end btn">后端项目地址</view>
 	</view>
 </template>

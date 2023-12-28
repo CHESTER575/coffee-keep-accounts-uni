@@ -16,6 +16,11 @@ const handleUserInfoClick = () => {
 		uni.navigateTo({url: '/pages/user-info/user-info'});
 	}
 };
+
+// 设置模块点击事件
+const handleToSetting = () => {
+	uni.navigateTo({url: '/pages/setting/setting'});
+};
 </script>
 
 <template>
@@ -55,7 +60,7 @@ const handleUserInfoClick = () => {
 				<view class="t-icon t-icon-edit-info-more"></view>
 			</view>
 			<view class="setting-about body-item">
-				<view class="setting">
+				<view class="setting" @click="handleToSetting">
 					<view class="left">
 						<view class="t-icon t-icon-shezhi"></view>
 						<view class="txt">设置</view>

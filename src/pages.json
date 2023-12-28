@@ -43,6 +43,12 @@
       "style": {
         "navigationStyle": "custom"
       }
+    },
+    {
+      "path": "pages/setting/setting",
+      "style": {
+        "navigationStyle": "custom"
+      }
     }
   ],
   "globalStyle": {

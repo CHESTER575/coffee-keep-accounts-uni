@@ -28,4 +28,4 @@ uni-app + vue3 + typescript + pinia
 
 ## 注意事项
 
-此项目仅用来学习uni-app、vue3、typescript、css预处理器
+此项目仅用来学习uni-app、vue3、typescript、css预处理器，不可用于商用

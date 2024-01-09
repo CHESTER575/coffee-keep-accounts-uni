@@ -26,6 +26,11 @@ const handleToSetting = () => {
 const handleToAbout = () => {
 	uni.navigateTo({url: '/pages/about/about'});
 };
+
+// 资产管理模块点击事件
+const handleAssetManagerClick = () => {
+	uni.navigateTo({url: '/pages/asset-manager/asset-manager'});
+};
 </script>
 
 <template>
@@ -41,7 +46,7 @@ const handleToAbout = () => {
 					<view class="t-icon t-icon-edit-info-more"></view>
 				</view>
 			</view>
-			<view class="asset-manager body-item">
+			<view class="asset-manager body-item" @click="handleAssetManagerClick">
 				<view class="title">
 					<text class="txt">资产管理</text>
 					<view class="t-icon t-icon-edit-info-more"></view>
